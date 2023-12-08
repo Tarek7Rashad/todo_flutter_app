@@ -1,4 +1,5 @@
 // ignore: file_names
+import 'package:awesome_dialog/awesome_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:todo_app2/cubits/tasksCubit/cubit/tasks_cubit_cubit.dart';
 
@@ -43,20 +44,53 @@ Widget buildTaskItem(Map tasksMap, context) {
               borderRadius: BorderRadius.circular(12),
               onChanged: (value) {
                 if (value == 'archive') {
-                  TasksCubitCubit.get(context).updateTask(
-                    status: 'archive',
-                    id: tasksMap['id'],
-                  );
-                  debugPrint(tasksMap['status']);
+                  AwesomeDialog(
+                    btnCancelColor: Colors.blueGrey,
+                    dismissOnBackKeyPress: true,
+                    context: context,
+                    dialogType: DialogType.info,
+                    animType: AnimType.rightSlide,
+                    desc: 'Do You Want To Archive This Task?',
+                    btnCancelOnPress: () {},
+                    btnOkOnPress: () {
+                      TasksCubitCubit.get(context).updateTask(
+                        status: 'archive',
+                        id: tasksMap['id'],
+                      );
+                      debugPrint(tasksMap['status']);
+                    },
+                  ).show();
                 } else if (value == 'done') {
-                  TasksCubitCubit.get(context).doneTask(
-                    status: 'done',
-                    id: tasksMap['id'],
-                  );
+                  AwesomeDialog(
+                    btnCancelColor: Colors.blueGrey,
+                    dismissOnBackKeyPress: true,
+                    context: context,
+                    dialogType: DialogType.info,
+                    animType: AnimType.rightSlide,
+                    desc: 'Do You Want Add This Task To Done Tasks?',
+                    btnCancelOnPress: () {},
+                    btnOkOnPress: () {
+                      TasksCubitCubit.get(context).doneTask(
+                        status: 'done',
+                        id: tasksMap['id'],
+                      );
+                    },
+                  ).show();
                 } else if (value == 'delete') {
-                  TasksCubitCubit.get(context).deleteTask(
-                    id: tasksMap['id'],
-                  );
+                  AwesomeDialog(
+                    btnCancelColor: Colors.blueGrey,
+                    dismissOnBackKeyPress: true,
+                    context: context,
+                    dialogType: DialogType.info,
+                    animType: AnimType.rightSlide,
+                    desc: 'Do You Want To Delete This Task?',
+                    btnCancelOnPress: () {},
+                    btnOkOnPress: () {
+                      TasksCubitCubit.get(context).deleteTask(
+                        id: tasksMap['id'],
+                      );
+                    },
+                  ).show();
                 }
               },
               items: const [
