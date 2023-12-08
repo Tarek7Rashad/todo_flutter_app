@@ -12,15 +12,17 @@ class CustomBottomNavigationBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      selectedItemColor: Colors.black,
       type: BottomNavigationBarType.fixed,
       currentIndex: cubit.currrentIndex,
       onTap: (value) {
         cubit.changeIndex(value);
       },
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.grey.withOpacity(.7),
       elevation: 0,
       iconSize: 30,
-      selectedLabelStyle: const TextStyle(fontSize: 20),
+      selectedLabelStyle:
+          const TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
       unselectedFontSize: 15,
       items: const [
         BottomNavigationBarItem(

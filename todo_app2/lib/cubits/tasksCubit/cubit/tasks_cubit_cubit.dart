@@ -26,7 +26,7 @@ class TasksCubitCubit extends Cubit<TasksCubitState> {
     const DoneTasks(),
     const ArchivedTasks()
   ];
-  List<String> titles = ["NEW TASKS", "DONE TASKS", "ARCHIVE TASKS"];
+  List<String> titles = ["New Tasks", "Done Tasks", "Archive Tasks"];
   void changeIndex(int value) {
     currrentIndex = value;
     emit(AppNavigationBar());

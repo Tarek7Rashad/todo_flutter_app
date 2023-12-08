@@ -1,5 +1,10 @@
 import 'package:flutter/material.dart';
 
+const kBlackColor = Colors.black87;
+const kBlueGreyColor = Colors.blueGrey;
+const kGreyColor = Colors.grey;
+const kWhiteColor = Colors.white;
+
 List<Map> tasks = [];
 
 GlobalKey<ScaffoldState> scaffoldKey = GlobalKey();

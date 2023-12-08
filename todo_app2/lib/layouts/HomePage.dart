@@ -52,20 +52,23 @@ class _HomePageState extends State<HomePage> {
                             date: dateTextEditingController.text,
                             time: timeTextEditingController.text,
                           );
+                          autovalidateMode = AutovalidateMode.always;
                         }
                       } else {
+                        autovalidateMode = AutovalidateMode.disabled;
                         scaffoldKey.currentState!
                             .showBottomSheet(
+                              shape: const ContinuousRectangleBorder(
+                                  borderRadius: BorderRadius.only(
+                                      topLeft: Radius.circular(80),
+                                      topRight: Radius.circular(80))),
+                              backgroundColor: kGreyColor.withOpacity(.9),
                               (context) {
-                                autovalidateMode = AutovalidateMode.always;
                                 return Form(
-                                  autovalidateMode: autovalidateMode,
+                                  autovalidateMode:
+                                      AutovalidateMode.onUserInteraction,
                                   key: formKey,
-                                  child: Container(
-                                    decoration: BoxDecoration(
-                                      borderRadius: BorderRadius.circular(20),
-                                      color: Colors.grey[200],
-                                    ),
+                                  child: SizedBox(
                                     height: 400,
                                     child: Padding(
                                       padding: const EdgeInsets.symmetric(
@@ -210,13 +213,18 @@ class _HomePageState extends State<HomePage> {
               bottomNavigationBar: CustomBottomNavigationBar(cubit: cubit),
               appBar: AppBar(
                 iconTheme: const IconThemeData(color: Colors.black87),
-                backgroundColor: Colors.transparent,
+                backgroundColor: kGreyColor.withOpacity(.7),
                 elevation: 0,
-                centerTitle: true,
+                actions: [
+                  IconButton(
+                      iconSize: 28,
+                      onPressed: () {},
+                      icon: const Icon(Icons.search))
+                ],
                 title: Text(
                   cubit.titles[cubit.currrentIndex],
                   style: const TextStyle(
-                      color: Colors.blueGrey,
+                      color: Colors.black,
                       fontSize: 24,
                       fontWeight: FontWeight.bold),
                 ),
