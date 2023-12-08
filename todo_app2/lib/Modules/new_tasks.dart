@@ -23,7 +23,7 @@ class NewTasks extends StatelessWidget {
               );
             },
             itemBuilder: (context, index) {
-              return buildTaskItem(tasks[index],context);
+              return buildTaskItem(tasks[index], context);
             },
             itemCount: tasks.length);
       },

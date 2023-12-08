@@ -31,7 +31,7 @@ Widget defaultFormField({
         labelText: label,
         prefixIcon: Icon(prefixIcon),
         suffixIcon: IconButton(onPressed: () {}, icon: Icon(suffix)),
-        border: OutlineInputBorder(),
+        border: const OutlineInputBorder(),
       ),
       onTap: () {
         onTap!();
